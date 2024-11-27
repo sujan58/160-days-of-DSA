@@ -1,0 +1,15 @@
+class Solution:
+    def missingNumber(self, arr):
+        n = len(arr)
+        for i in range(n):
+            while 1 <= arr[i] <= n and arr[arr[i] - 1] != arr[i]:
+                arr[arr[i] - 1], arr[i] = arr[i], arr[arr[i] - 1]
+        for i in range(n):
+            if arr[i] != i + 1:
+                return i + 1
+        return n + 1
+
+sol = Solution()
+print(sol.missingNumber([2, -3, 4, 1, 1, 7]))
+print(sol.missingNumber([5, 3, 2, 5, 1]))
+print(sol.missingNumber([-8, 0, -1, -4, -3]))
