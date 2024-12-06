@@ -1,0 +1,13 @@
+class Solution:
+    # Function to find hIndex
+    def hIndex(self, citations):
+        # Step 1: Sort the citations array
+        citations.sort()
+        n = len(citations)
+        
+        # Step 2: Find the H-Index
+        for i in range(n):
+            h = n - i
+            if citations[i] >= h:
+                return h
+        return 0
